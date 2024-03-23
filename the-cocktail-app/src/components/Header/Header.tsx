@@ -1,13 +1,13 @@
-import { AppBar, Toolbar, Typography, MenuItem } from '@mui/material';
-
 import { useLocation } from 'react-router-dom';
+
+import { AppBar, Toolbar, Typography, MenuItem } from '@mui/material';
 
 export const Header = () => {
   const location = useLocation();
 
   return (
     <AppBar position="static" className="header">
-      <Typography className="header-name">Beans Loves Beers</Typography>
+      <Typography className="header-name">Cats Loves Cocktails</Typography>
 
       <Toolbar className="header-toolbar">
         <MenuItem key={'home'} className="" onClick={() => {}}>

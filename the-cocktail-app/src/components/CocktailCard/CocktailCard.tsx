@@ -10,7 +10,11 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 import clickSound from 'assets/opening-sound.mp3';
 
-const CocktailCard = ({ cocktail }: { cocktail: Record<string, string> }) => {
+interface CocktailCardProps {
+  cocktail: Record<string, string>;
+}
+
+const CocktailCard = ({ cocktail }: CocktailCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const toggleFavorite = () => {
