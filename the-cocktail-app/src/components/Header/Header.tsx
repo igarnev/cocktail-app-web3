@@ -2,7 +2,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { AppBar, Toolbar, Typography, MenuItem } from '@mui/material';
 
-export const Header = () => {
+import MetaMaskConnectComponent from 'features/MetaMaskConnect/MetaMaskConnect';
+
+interface HeaderComponentProps {
+  setIsLogged: (isLogged: boolean) => void;
+}
+
+export const Header = ({ setIsLogged }: HeaderComponentProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -20,6 +26,7 @@ export const Header = () => {
             Favourites
           </Typography>
         </MenuItem>
+        <MetaMaskConnectComponent setIsLogged={setIsLogged} />
       </Toolbar>
     </AppBar>
   );

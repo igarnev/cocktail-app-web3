@@ -8,7 +8,7 @@ import CocktailCard from 'components/CocktailCard/CocktailCard';
 import SearchBar from 'components/SearchBar/SearchBar';
 import CocktailFilter from 'components/CocktailFilter/CocktailFilter';
 
-import { RandomCocktail } from 'features/RandomCocktail';
+import { RandomCocktail } from 'features/RandomCocktail/RandomCocktail';
 
 export const CocktailsListing = () => {
   // Default search term is 'a' because there is no get all endpoint
