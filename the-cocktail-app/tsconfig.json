@@ -2,9 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "utils/*": ["./src/utils/*"],
+      "assets/*": ["./src/assets/*"],
       "components/*": ["./src/components/*"],
-      "assets/*": ["./src/assets/*"]
+      "features/*": ["./src/features/*"],
+      "models/*": ["./src/models/*"],
+      "pages/*": ["./src/pages/*"],
+      "services/*": ["./src/services/*"],
+      "styles/*": ["./src/styles/*"],
+      "utils/*": ["./src/utils/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,

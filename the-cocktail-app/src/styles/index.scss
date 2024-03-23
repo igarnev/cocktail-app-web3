@@ -1,0 +1,10 @@
+@import 'styles/utils/reset';
+@import 'styles/utils/variables';
+
+@import 'styles/components/_header.scss';
+@import 'styles/components/_cocktail-card.scss';
+@import 'styles/components/_cocktails-listing.scss';
+
+body * {
+  font-family: 'Open Sans' !important;
+}

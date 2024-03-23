@@ -9,9 +9,14 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'utils/': `${path.resolve(__dirname, './src/utils/')}/`, // Ensure trailing slash for directory resolution
-      'components/': `${path.resolve(__dirname, './src/components/')}/`, // Ensure trailing slash for directory resolution
-      'assets/': `${path.resolve(__dirname, './src/assets/')}/`, // Ensure trailing slash for directory resolution
+      'assets/': `${path.resolve(__dirname, './src/assets/')}/`,
+      'components/': `${path.resolve(__dirname, './src/components/')}/`,
+      'features/': `${path.resolve(__dirname, './src/features/')}/`,
+      'models/': `${path.resolve(__dirname, './src/models/')}/`,
+      'pages/': `${path.resolve(__dirname, './src/pages/')}/`,
+      'services/': `${path.resolve(__dirname, './src/services/')}/`,
+      'styles/': `${path.resolve(__dirname, './src/styles/')}/`,
+      'utils/': `${path.resolve(__dirname, './src/utils/')}/`,
     },
   },
 });
