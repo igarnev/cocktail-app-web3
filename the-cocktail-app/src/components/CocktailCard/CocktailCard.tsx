@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,15 +10,29 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 import clickSound from 'assets/opening-sound.mp3';
 
+import { mapCocktailForCard } from 'services/mappers/cocktails';
+
+import { FavouritesContext } from 'utils/contexts/FavouriteCocktailsContext';
+
 interface CocktailCardProps {
   cocktail: Record<string, string>;
 }
 
 const CocktailCard = ({ cocktail }: CocktailCardProps) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  // Do not map if already mapped
+  cocktail =
+    cocktail.description !== undefined && cocktail.description !== null ? cocktail : mapCocktailForCard(cocktail);
+
+  const { addFavourite, removeFavourite, isFavourite } = useContext(FavouritesContext);
+
+  const isFavourited = isFavourite(cocktail.idDrink);
 
   const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
+    if (isFavourited) {
+      removeFavourite(cocktail.idDrink);
+    } else {
+      addFavourite(cocktail);
+    }
   };
 
   return (
@@ -28,7 +42,7 @@ const CocktailCard = ({ cocktail }: CocktailCardProps) => {
         sx={{ top: 8, left: 320, position: 'absolute' }}
         onClick={toggleFavorite}
       >
-        {isFavorite ? <StarIcon sx={{ color: '#0ad2b2' }} /> : <StarBorderIcon />}
+        {isFavourited ? <StarIcon sx={{ color: '#0ad2b2' }} /> : <StarBorderIcon />}
       </IconButton>
 
       <CardContent className="cocktail-container">

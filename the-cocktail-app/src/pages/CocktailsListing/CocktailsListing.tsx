@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { mapCocktailForCard } from 'services/mappers/cocktails';
 import { fetchCocktailsByCategory, fetchCocktailsBySearch } from 'services/cocktails-listing';
 
 import CocktailCard from 'components/CocktailCard/CocktailCard';
 import SearchBar from 'components/SearchBar/SearchBar';
 import CocktailFilter from 'components/CocktailFilter/CocktailFilter';
+
+import { RandomCocktail } from 'features/RandomCocktail';
 
 export const CocktailsListing = () => {
   // Default search term is 'a' because there is no get all endpoint
@@ -54,14 +55,13 @@ export const CocktailsListing = () => {
     <>
       <SearchBar searchString={cocktailSearchTerm} onSearch={onSearch} />
       <div className="cocktail-filter-container">
+        <RandomCocktail />
         <CocktailFilter cocktailCategory={cocktailCategory} setCocktailCategory={setCocktailCategory} />
       </div>
 
       <div className="cocktails-listing-container">
         {data?.drinks &&
-          data.drinks.map((cocktail: any) => (
-            <CocktailCard key={cocktail.idDrink} cocktail={mapCocktailForCard(cocktail)} />
-          ))}
+          data.drinks.map((cocktail: any) => <CocktailCard key={cocktail.idDrink} cocktail={cocktail} />)}
       </div>
     </>
   );
