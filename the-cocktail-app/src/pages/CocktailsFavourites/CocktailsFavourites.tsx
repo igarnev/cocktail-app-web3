@@ -22,7 +22,7 @@ export const CocktailsFavourites = () => {
 
       <div className="cocktails-listing-container">
         {Object.values(favourites).map((cocktail: any) => (
-          <CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
+          <CocktailCard key={cocktail.idDrink ?? Math.random()} cocktail={cocktail} />
         ))}
       </div>
     </>

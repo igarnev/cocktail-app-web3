@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { CircularProgress } from '@mui/material';
 
 import { useQuery } from '@tanstack/react-query';
 
@@ -28,7 +29,15 @@ export const CocktailFilter = ({ cocktailCategory, setCocktailCategory }: Cockta
     setCocktailCategory(event.target.value);
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <CircularProgress
+        sx={{ position: 'absolute', top: '40%', left: '40%', color: '#cbf6ef' }}
+        size={200}
+        color="secondary"
+        thickness={4}
+      />
+    );
 
   if (error) return <div>An error occurred: {error.message}</div>;
 

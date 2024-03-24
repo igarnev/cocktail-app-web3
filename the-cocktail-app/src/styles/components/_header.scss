@@ -23,4 +23,9 @@
     @extend .header-menu-item;
     color: $selected-header-item;
   }
+
+  .active-item-contract {
+    @extend .header-menu-item;
+    color: $selected-header-contract;
+  }
 }

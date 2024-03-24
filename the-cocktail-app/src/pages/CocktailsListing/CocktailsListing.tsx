@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
+import { CircularProgress } from '@mui/material';
+
 import { fetchCocktailsByCategory, fetchCocktailsBySearch } from 'services/cocktails-listing';
 
 import CocktailCard from 'components/CocktailCard/CocktailCard';
@@ -44,7 +46,14 @@ export const CocktailsListing = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <CircularProgress
+        sx={{ position: 'absolute', top: '40%', left: '40%', color: '#cbf6ef' }}
+        size={200}
+        color="secondary"
+        thickness={4}
+      />
+    );
   }
 
   if (error) {

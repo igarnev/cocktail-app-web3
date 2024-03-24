@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
+import { CircularProgress } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 import { useQuery } from '@tanstack/react-query';
@@ -30,7 +31,15 @@ export const RandomCocktail = () => {
     queryFn: () => get('https://www.thecocktaildb.com/api/json/v1/1/random.php'),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <CircularProgress
+        sx={{ position: 'absolute', top: '40%', left: '40%', color: '#cbf6ef' }}
+        size={200}
+        color="secondary"
+        thickness={4}
+      />
+    );
 
   if (error) return <div>An error occurred: {error.message}</div>;
 

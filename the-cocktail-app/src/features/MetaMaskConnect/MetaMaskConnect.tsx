@@ -3,6 +3,7 @@ import { useAccount, useConnect, useDisconnect } from 'wagmi';
 
 import IconButton from '@mui/material/IconButton';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Typography } from '@mui/material';
 
 import metamaskLogo from 'assets/metamask-logo.png';
 
@@ -34,7 +35,11 @@ export const MetaMaskConnectComponent = ({ setIsLogged }: MetaMaskConnectCompone
         </MainTooltip>
       )}
 
-      {account.addresses?.[0] && <div>Connected Wallet: {shortenWalletAddress(account.addresses?.[0] as string)}</div>}
+      {account.addresses?.[0] && (
+        <Typography sx={{ paddingRight: 1 }}>
+          Connected Wallet: {shortenWalletAddress(account.addresses?.[0] as string)}
+        </Typography>
+      )}
 
       <div>
         {account.status !== 'connected' &&

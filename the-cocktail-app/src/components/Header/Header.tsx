@@ -26,6 +26,19 @@ export const Header = ({ setIsLogged }: HeaderComponentProps) => {
             Favourites
           </Typography>
         </MenuItem>
+
+        <MenuItem key={'contract-cocktails'} onClick={() => navigate('/contract-cocktails')}>
+          <Typography
+            sx={{
+              color: '#9b24fd ',
+              fontFamily: '"Share Tech Mono", sans-serif !important',
+              fontWeight: 'bold',
+            }}
+            className={location.pathname === '/contract-cocktails' ? 'active-item-contract' : 'header-menu-item'}
+          >
+            Contract Cocktails
+          </Typography>
+        </MenuItem>
         <MetaMaskConnectComponent setIsLogged={setIsLogged} />
       </Toolbar>
     </AppBar>

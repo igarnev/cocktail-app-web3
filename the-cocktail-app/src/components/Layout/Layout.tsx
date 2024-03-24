@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 
 import { CocktailsListing } from 'pages/CocktailsListing/CocktailsListing';
 import { CocktailsFavourites } from 'pages/CocktailsFavourites/CocktailsFavourites';
+import { ContractCocktailsListing } from 'pages/ContractCocktailsListing/ContractCocktailsListing';
 
 import { ROUTES } from 'utils/constants/routes';
 
@@ -21,6 +22,7 @@ export const AppRoutes = () => {
         <Routes>
           <Route path={ROUTES.home} element={<CocktailsListing />} />
           <Route path={ROUTES.favourites} element={<CocktailsFavourites />} />
+          <Route path={ROUTES.contractCocktails} element={<ContractCocktailsListing />} />
 
           <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
         </Routes>
